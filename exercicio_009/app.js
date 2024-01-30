@@ -8,3 +8,13 @@ Enunciado:
 
     NOTA: Deves definir os valores do range.
 ---------------------------------------------------------------------------- */
+
+const range = document.querySelector("#range");
+const text = document.querySelector("h3");
+
+const changeOpacityText = (e)=> {
+    const opacity = parseInt(e.target.value);
+    text.style.opacity = `${opacity}%`;
+}
+
+range.addEventListener("input", changeOpacityText);
