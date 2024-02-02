@@ -10,3 +10,20 @@ Enunciado:
     NOTA: Não podes usar um ciclo neste exercício.
 ---------------------------------------------------------------------------- */
 let frutos = ['laranja', 'maçã', 'pêra', 'morango', 'ananás', 'limão', 'banana'];
+
+const text_palavra = document.querySelector("#text_palavra");
+const button = document.querySelector("button");
+const resultado = document.querySelector("#resultado");
+
+const showSearch = ()=> {
+    const result = frutos.find(fruto => text_palavra.value == fruto);
+    
+    if (result){
+        resultado.innerText = "SIM";
+        return;
+    }
+
+    resultado.innerText = "NÃO";    
+}
+
+button.addEventListener("click", showSearch);
