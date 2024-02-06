@@ -7,3 +7,26 @@ Enunciado:
     2. Sempre que pressionares a tecla Enter (return), o focus deverá
     passar para o input seguinte, mesmo que não tenhas escrito qualquer texto.
 ---------------------------------------------------------------------------- */
+
+const texts = document.querySelectorAll(`
+    [name="text_1"],
+    [name="text_2"],
+    [name="text_3"],
+    [name="text_4"]`);
+
+let inputSelectedIndex = 0;
+
+//define focus default 
+texts[inputSelectedIndex].focus();
+
+const updateFocusInput = (e)=> {
+
+    if (e.key == "Enter"){
+        console.log(e);
+    }
+    
+}
+
+texts.forEach(text => {
+    text.addEventListener("keydown", updateFocusInput);
+});
