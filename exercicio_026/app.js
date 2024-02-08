@@ -12,3 +12,42 @@ Enunciado:
     Se for igual, deve aparecer uma mensagem de sucesso, caso contrário,
     a mensagem de sucesso deve estar escondida.
 ---------------------------------------------------------------------------- */
+
+const inputs = document.querySelectorAll(`#t1, #t2, #t3, #t4`);
+const h1 = document.querySelector("h1");
+
+const hideText = (hide = true) => {
+    if (hide) {
+        h1.classList.add("d-none");
+        return;
+    }
+
+    h1.classList.remove("d-none");
+}
+
+const setFocus = (index) => {
+    inputs[index].focus();
+}
+
+const setFocusInNextInput = (e) => {
+
+    const parentId = +(e.target.parentNode.id) - 1;
+
+    //test if the parentId is more than input length
+    if (parentId >= inputs.length - 1) {
+        setFocus(0);
+        return;
+    }
+
+    setFocus(parentId + 1);
+
+}
+
+inputs.forEach(input => {
+    input.addEventListener("keyup", setFocusInNextInput);
+});
+
+//hide h1
+hideText();
+//set focus in first input
+setFocus(0);
