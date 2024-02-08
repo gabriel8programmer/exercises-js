@@ -20,11 +20,24 @@ let inputSelectedIndex = 0;
 texts[inputSelectedIndex].focus();
 
 const updateFocusInput = (e)=> {
-
     if (e.key == "Enter"){
-        console.log(e);
+
+        //define value of the input
+        switch(e.target.name){
+            case "text_1":
+                inputSelectedIndex = 1;
+                break;
+            case "text_2":
+                inputSelectedIndex = 2;
+                break;
+            case "text_3":
+                inputSelectedIndex = 3;
+                break;
+            }
+            
+            //define focus in next input
+            texts[inputSelectedIndex].focus();
     }
-    
 }
 
 texts.forEach(text => {
