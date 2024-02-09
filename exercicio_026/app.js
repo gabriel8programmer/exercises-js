@@ -32,6 +32,20 @@ const setFocus = (index) => {
 const setFocusInNextInput = (e) => {
 
     const parentId = +(e.target.parentNode.id) - 1;
+    e.target.value = e.target.value.slice(-1);
+
+    //hide text
+    hideText();
+
+    let strSequence = "";
+    for (let input of inputs){
+        strSequence += input.value;
+    }
+
+    //test sequence
+    if (strSequence === "1234"){
+        hideText(false);
+    }
 
     //test if the parentId is more than input length
     if (parentId >= inputs.length - 1) {
@@ -40,7 +54,6 @@ const setFocusInNextInput = (e) => {
     }
 
     setFocus(parentId + 1);
-
 }
 
 inputs.forEach(input => {
